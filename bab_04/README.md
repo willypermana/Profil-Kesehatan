@@ -1,1 +1,1 @@
-Put this chapter chart's picture in this folder.
+Put this chapter's chart pictures in this folder.
