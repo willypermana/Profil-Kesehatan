@@ -3,7 +3,7 @@ Berkas LaTeX dan lain sebagainya untuk menyusun Profil Kesehatan (https://www.ke
 
 This particular template was made on TeX-Live 2016 (couldn’t get around to actually updating it), but it should be working reasonably well with newer releases.
 
-Untuk pembuatan grafik memerlukan python, numpy dan pandas.
+Untuk pembuatan grafik memerlukan python, matplotlib, numpy dan pandas.
 
 Konversi ke pdf menggunakan xelatex.
 
