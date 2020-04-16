@@ -1,6 +1,8 @@
 # Profil-Kesehatan
 Berkas LaTeX dan lain sebagainya untuk menyusun Profil Kesehatan (https://www.kemkes.go.id/article/view/19100200001/Juknis-Profil-Kesehatan-2019.html).
 
+This particular template was made on TeX-Live 2016 (couldn’t get around to actually updating it), but it should be working reasonably well with newer releases.
+
 Untuk pembuatan grafik memerlukan python, numpy dan pandas.
 
 Konversi ke pdf menggunakan xelatex.
