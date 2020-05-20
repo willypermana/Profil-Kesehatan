@@ -1,4 +1,6 @@
-% this is kinda necessary. I forgot why though
+% this \phantomsection is kinda necessary. I forgot why though
+% edit: it's because \addcontentsline need an "anchor" to mark the pages, otherwise it'll spill to previous 
+% pages and ended up in the different part of TOC
 \phantomsection
 % add \protect\numberline{} to get nice indentation in the List of Tables
 \addcontentsline{lot}{section}{\protect\numberline{}Tabel 1 - Luas wilayah, jumlah desa/ kelurahan, jumlah penduduk, jumlah rumah tangga dan kepadatan penduduk}
