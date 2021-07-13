@@ -3,6 +3,6 @@ There's really no short way to make this particular appendix in LaTeX. `excel2la
 
 https://ctan.org/pkg/excel2latex?lang=en
 
-Conversely you can just use the Excel provided sheet from Pusdatin and call it a day, but then you have to find another way to integrate them to the List of Tables...
+Conversely you could just use the provided Excel sheets from Pusdatin and call it a day, but then you have to find another way to integrate them to the List of Tables...
 
 Not going to put all of tables here. Just the very first one and a quite long table for the general idea.
