@@ -7,12 +7,23 @@ from textwrap import wrap
 from matplotlib.ticker import FuncFormatter
 import locale
 locale.setlocale(locale.LC_ALL, 'id_ID.UTF8')
+## force matplotlib to use TrueType fonts
+plt.rcParams['pdf.fonttype'] = 42
 
-berkasData = r'D:\path\ke\direktori\profil_kesehatan\bab_05\bab_05_02_dataPlotAKI.csv'
+# necessary if you want to use relative path but your project isn't in Python $PATH
+import sys, os, inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
+import konstan
+
+berkasData = konstan.direktori5 +'bab_05_02_dataPlotAKI.csv'
 judulDiagram = 'Angka Kematian Ibu'
 sumbuY = 'Jumlah'
+tickerSumbuY = np.arange(0,510,100)
+tickerSumbuY2 = np.arange(0,21,5)
 sumbuX = 'Tahun'
-berkasSimpan = r'D:\path\ke\direktori\profil_kesehatan\bab_05\bab_05_02_plotAKI.pdf'
+berkasSimpan = konstan.direktori5 +'bab_05_02_plotAKI.pdf'
 
 # read data file
 colnames = ['tahun','aki', 'kematian']
@@ -34,17 +45,17 @@ garis2 = ax2.plot(ind, kematian, marker='.', color='#cc0000', label='Jumlah Kema
 
 # add some text for labels, title and axes ticks
 ax.set_title(judulDiagram)
-ax.set_ylim(0,460)
-ax.set_yticks(np.arange(0,460,50)) 
+ax.set_yticks(tickerSumbuY) 
 # yticks can be set to auto
 # ax.set_yticks(np.arange(0,110,20)) 
 ax.set_ylabel('AKI per 100.000 kelahiran')
 formatter = FuncFormatter(lambda y, pos: "{:n}".format(y))
+# use round to get significant decimal
+#formatter = FuncFormatter(lambda y, pos: "{:n}".format(round(y,2)))
 ax.yaxis.set_major_formatter(formatter)
 
 # set secondary yticks
-ax2.set_ylim(0,21)
-ax2.set_yticks(np.arange(0,21,5)) 
+ax2.set_yticks(tickerSumbuY2) 
 ax2.set_ylabel('Jumlah kematian')
 
 ax.spines['top'].set_visible(False)
@@ -77,6 +88,8 @@ for i, txt in enumerate(kematian):
 pyrfig = plt.figure(1)
 pyrfig.set_figwidth(8)
 pyrfig.set_figheight(5)
+# uncomment following two lines to save figures
 fig.savefig(berkasSimpan, bbox_inches='tight')
 plt.close(pyrfig)
-#plt.show()
+# uncomment following lines to generate figures on screen
+# plt.show()

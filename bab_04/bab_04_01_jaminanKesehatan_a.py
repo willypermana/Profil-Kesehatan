@@ -5,10 +5,19 @@ from textwrap import wrap
 from matplotlib.ticker import FuncFormatter
 import locale
 locale.setlocale(locale.LC_ALL, 'id_ID.UTF8')
+## force matplotlib to use TrueType fonts
+plt.rcParams['pdf.fonttype'] = 42
 
-berkasData = r'D:\path\ke\direktori\bab_04\bab_04_01_dataJaminanKesehatan.csv'
+import sys, os, inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
+
+import konstan
+
+berkasData = konstan.direktori4 +'bab_04_01_dataJaminanKesehatan.csv'
 judulDiagram = 'Cakupan BPJS Kesehatan'
-berkasSimpan = r'D:\path\ke\direktori\bab_04\bab_04_01_jaminanKesehatan_a.pdf'
+berkasSimpan = konstan.direktori4 + 'bab_04_01_jaminanKesehatan_a.pdf'
 
 # read data file
 colnames = ['jenisJaminan','jumlahPeserta']
@@ -22,7 +31,7 @@ fig1, ax1 = plt.subplots()
 # explodeTuple = (0.05, 0, 0.1, 0.0, 0.1, 0.3)
 # patches, texts, autotexts = ax1.pie(listPagu, autopct='%.2f%%', pctdistance=0.85, explode=explodeTuple, startangle=80)
 explodeTuple = (0.05, 0, 0.15, 0.0, 0.2)
-patches, texts, autotexts = ax1.pie(listJumlah[0:5], autopct='%.2f%%', pctdistance=1.2, explode=explodeTuple, startangle=80)
+patches, texts, autotexts = ax1.pie(listJumlah[0:5], autopct=lambda p : '{:n}%'.format(round(p,2)), pctdistance=1.2, explode=explodeTuple, startangle=80)
 
 for t, tes1 in enumerate(autotexts):
     tes1.set_size(9)

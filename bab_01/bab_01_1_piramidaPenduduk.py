@@ -1,13 +1,23 @@
 import numpy as np
+import numpy as np
 import matplotlib.pyplot as plt
 import pandas
+from textwrap import wrap
+from matplotlib.ticker import FuncFormatter
 import locale
-locale.setlocale(locale.LC_ALL, 'Indonesian_indonesia.1252')
+locale.setlocale(locale.LC_ALL, 'id_ID.UTF8')
+## force matplotlib to use TrueType fonts
+plt.rcParams['pdf.fonttype'] = 42
 
-plt.style.use('seaborn-paper')
+import sys, os, inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
+
+import konstan
 
 colnames = ['kelompokUmur','popLakiLaki','popPerempuan']
-data = pandas.read_csv(r'D:\path\ke\direktori\data\penduduk\bab_01_1_dataPiramidaPenduduk.csv', names=colnames, sep=';')
+data = pandas.read_csv(konstan.direktori1 +'bab_01_1_dataPiramidaPenduduk.csv', names=colnames, sep=';')
 sumbuY = data.kelompokUmur.tolist()
 bar2 = data.popLakiLaki.tolist()
 bar1 = data.popPerempuan.tolist()
