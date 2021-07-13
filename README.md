@@ -10,6 +10,15 @@ Konversi ke pdf menggunakan xelatex.
 ## fc-cache_batch.bat
 Saat kompilasi ke pdf, xelatex mungkin akan sering macet di `(c:/texlive/2016/texmf-dist/tex/latex/euenc/eu1lmr.fd)`. Dari beberapa sumber, hal ini karena xelatex tidak menemukan tembolok (cache) fonta lokal, lalu mencoba membaca ulang seluruh font di sistem. Jalankan skrip fc-cache_batch.bat sebagai administrator untuk membangun ulang tembolok fonta lokal.
 
+## On Appendix 3 - Profile Tables
+There's really no short way to make this particular appendix in LaTeX. `excel2latex` add-in helps, but you'd still need to fine tune every single tables.
+
+https://ctan.org/pkg/excel2latex?lang=en
+
+Conversely you could just use the provided Excel sheets from Pusdatin and call it a day, but then you have to find another way to integrate them to the List of Tables...
+
+Not going to put all of tables here. Just the very first one and a quite long table for the general idea.
+
 ## Why so few samples on chart picture scripts?
 I *think* there's about 70+ charts used in this report. So it's too much efforts to edit and upload to begin with, and there are even some more charts that I had to scrap away because it didn't get editorial approval and thus didn't make it to the published version. I'm putting some samples here and there, though.
 
