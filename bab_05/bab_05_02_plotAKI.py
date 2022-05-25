@@ -15,15 +15,14 @@ import sys, os, inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
-import konstan
 
-berkasData = konstan.direktori5 +'bab_05_02_dataPlotAKI.csv'
+berkasData = currentdir +'\\bab_05_02_dataPlotAKI.csv'
 judulDiagram = 'Angka Kematian Ibu'
 sumbuY = 'Jumlah'
 tickerSumbuY = np.arange(0,510,100)
 tickerSumbuY2 = np.arange(0,21,5)
 sumbuX = 'Tahun'
-berkasSimpan = konstan.direktori5 +'bab_05_02_plotAKI.pdf'
+berkasSimpan = currentdir +'\\bab_05_02_plotAKI.pdf'
 
 # read data file
 colnames = ['tahun','aki', 'kematian']
@@ -47,7 +46,6 @@ garis2 = ax2.plot(ind, kematian, marker='.', color='#cc0000', label='Jumlah Kema
 ax.set_title(judulDiagram)
 ax.set_yticks(tickerSumbuY) 
 # yticks can be set to auto
-# ax.set_yticks(np.arange(0,110,20)) 
 ax.set_ylabel('AKI per 100.000 kelahiran')
 formatter = FuncFormatter(lambda y, pos: "{:n}".format(y))
 # use round to get significant decimal
@@ -69,9 +67,6 @@ ax.set_xticks(ind)
 ax.set_xticklabels(list(tahun), fontsize='small', ha='center')
 ax.set_xlabel(sumbuX)
 
-ax.spines['top'].set_visible(False)
-ax2.spines['top'].set_visible(False)
-
 box = ax.get_position()
 ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
 # legend workaround for 2-vert axis line diagram
@@ -88,8 +83,12 @@ for i, txt in enumerate(kematian):
 pyrfig = plt.figure(1)
 pyrfig.set_figwidth(8)
 pyrfig.set_figheight(5)
+# tight_layout to make consistent size
+# adjust subplot to make room for legend
+fig.subplots_adjust(bottom=-0.15)
+plt.tight_layout()
 # uncomment following two lines to save figures
-fig.savefig(berkasSimpan, bbox_inches='tight')
+plt.savefig(berkasSimpan)
 plt.close(pyrfig)
 # uncomment following lines to generate figures on screen
 # plt.show()
