@@ -1,40 +1,46 @@
 \documentclass[oneside,bahasa]{extbook}
-\include{bab_00_/preamble}
+\include{bab_00_preamble-front/preamble}
+\include{bab_00_preamble-front/variabel}
 
 \begin{document}
-
-\include{bab_00/bab_00_frontmatter}
+%% uncomment to insert cover page
+%\includepdf[pages=-]{coverProfil2022.pdf}
+\include{bab_00_preamble-front/bab_00_frontmatter}
 
 \mainmatter
 
 \include{bab_01/bab_01_gambaran_umum}
-
+\clearpage
 \include{bab_02/bab_02_sarana_prasarana_kesehatan}
-
+\clearpage
 \include{bab_03/bab_03_sumber_daya_manusia_kesehatan}
-
+\clearpage
 \include{bab_04/bab_04_pembiayaan_kesehatan}
-
+\clearpage
 \include{bab_05/bab_05_kesehatan_keluarga}
-
+\clearpage
 \include{bab_06/bab_06_pengendalian_penyakit}
-
+\clearpage
 \include{bab_07/bab_07_kesehatan_lingkungan}
-
+\clearpage
 \include{bab_08/bab_08_penutup}
-
+\clearpage
 %renewcommand for appendixtoc should be placed right before appendices section
 \renewcommand\appendixtocname{Lampiran}
 \begin{appendices}
 \include{bab_09_apendiks/bab_09_apendiks_1_spm}
-
-\include{bab_09_apendiks/bab_09_apendiks_2_iku}
-
-\include{bab_09_apendiks/bab_09_apendiks_3_tabel_profil}
-
-\include{bab_09_apendiks/daftar_pustaka}
+\clearpage
+\include{bab_09_apendiks/bab_09_apendiks_2_sdgs}
+\clearpage
+\include{bab_09_apendiks/bab_09_apendiks_3_iku}
+\clearpage
+\include{bab_09_apendiks/bab_09_apendiks_4_tabel_profil} %done
+\cleardoublepage
+\end{appendices}
+%% print bibliography by biblatex package
+\nocite{*}
+\printbibliography[heading=bibintoc]
+\cleardoublepage
 
 \include{bab_09_apendiks/kolofon}
-
-\end{appendices}
 \end{document}

@@ -1,7 +1,0 @@
-direktori1= r'.\bab_01\\'
-direktori2= r'.\bab_02\\'
-direktori3= r'.\bab_03\\'
-direktori4= r'.\bab_04\\'
-direktori5= r'.\bab_05\\'
-direktori6= r'.\bab_06\\'
-direktori7= r'.\bab_07\\'
