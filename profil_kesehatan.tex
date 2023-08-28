@@ -25,6 +25,11 @@
 \clearpage
 \include{bab_08/bab_08_penutup}
 \clearpage
+%% print bibliography by biblatex package
+\nocite{*}
+\printbibliography[heading=bibintoc]
+\cleardoublepage
+
 %renewcommand for appendixtoc should be placed right before appendices section
 \renewcommand\appendixtocname{Lampiran}
 \begin{appendices}
@@ -37,10 +42,6 @@
 \include{bab_09_apendiks/bab_09_apendiks_4_tabel_profil} %done
 \cleardoublepage
 \end{appendices}
-%% print bibliography by biblatex package
-\nocite{*}
-\printbibliography[heading=bibintoc]
-\cleardoublepage
 
 \include{bab_09_apendiks/kolofon}
 \end{document}
